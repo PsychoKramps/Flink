@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Flink.Domain\Flink.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
