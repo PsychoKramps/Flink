@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32516.85
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flink.Api", "Flink.Api\Flink.Api.csproj", "{457732E1-0DFA-4594-A556-36793A96D0CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flink.Application", "Flink.Core\Flink.Application.csproj", "{364BF751-6B75-416D-AA34-E2706B0C2B63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flink.Infraestructure", "Flink.Infraestructure\Flink.Infraestructure.csproj", "{9969E6C4-10A1-498B-A1DD-E5EF27C8A89E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{39C98F3E-4E28-443F-95EB-FEC28F9FF91E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infraestructure", "Infraestructure", "{198CD5A9-66F4-4AAF-A3E1-D72C578E1375}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{F16455CA-C494-42A3-98EB-84BA8444B036}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flink.Domain", "Flink.Domain\Flink.Domain.csproj", "{25ED3E07-1038-4E17-8278-95743BAB67A9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{457732E1-0DFA-4594-A556-36793A96D0CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{457732E1-0DFA-4594-A556-36793A96D0CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{457732E1-0DFA-4594-A556-36793A96D0CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{457732E1-0DFA-4594-A556-36793A96D0CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{364BF751-6B75-416D-AA34-E2706B0C2B63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{364BF751-6B75-416D-AA34-E2706B0C2B63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{364BF751-6B75-416D-AA34-E2706B0C2B63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{364BF751-6B75-416D-AA34-E2706B0C2B63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9969E6C4-10A1-498B-A1DD-E5EF27C8A89E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9969E6C4-10A1-498B-A1DD-E5EF27C8A89E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9969E6C4-10A1-498B-A1DD-E5EF27C8A89E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9969E6C4-10A1-498B-A1DD-E5EF27C8A89E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25ED3E07-1038-4E17-8278-95743BAB67A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25ED3E07-1038-4E17-8278-95743BAB67A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25ED3E07-1038-4E17-8278-95743BAB67A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25ED3E07-1038-4E17-8278-95743BAB67A9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{457732E1-0DFA-4594-A556-36793A96D0CD} = {F16455CA-C494-42A3-98EB-84BA8444B036}
+		{364BF751-6B75-416D-AA34-E2706B0C2B63} = {39C98F3E-4E28-443F-95EB-FEC28F9FF91E}
+		{9969E6C4-10A1-498B-A1DD-E5EF27C8A89E} = {198CD5A9-66F4-4AAF-A3E1-D72C578E1375}
+		{25ED3E07-1038-4E17-8278-95743BAB67A9} = {39C98F3E-4E28-443F-95EB-FEC28F9FF91E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CA568CBB-F4DB-4AC2-A872-FCB4AF85ECB0}
+	EndGlobalSection
+EndGlobal
