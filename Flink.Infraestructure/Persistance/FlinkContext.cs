@@ -17,7 +17,6 @@ namespace Flink.Infraestructure.Persistance
         }
 
         public virtual DbSet<Curso> Cursos { get; set; } = null!;
-        public virtual DbSet<TblUsuario> TblUsuarios { get; set; } = null!;
         public virtual DbSet<Usuario> Usuarios { get; set; } = null!;
         public virtual DbSet<UsuarioCurso> UsuarioCursos { get; set; } = null!;
 
@@ -53,33 +52,7 @@ namespace Flink.Infraestructure.Persistance
                 entity.Property(e => e.UrlCurso).IsUnicode(false);
             });
 
-            modelBuilder.Entity<TblUsuario>(entity =>
-            {
-                entity.HasKey(e => e.IdUsuario)
-                    .HasName("PK__TblUsuar__EF59F76215E66D5E");
-
-                entity.ToTable("TblUsuario");
-
-                entity.Property(e => e.IdUsuario)
-                    .ValueGeneratedNever()
-                    .HasColumnName("Id_usuario");
-
-                entity.Property(e => e.Apellidos)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Contraseña)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.NombreUsuario)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Nombres)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-            });
+        
 
             modelBuilder.Entity<Usuario>(entity =>
             {
@@ -132,6 +105,13 @@ namespace Flink.Infraestructure.Persistance
                     .HasForeignKey(d => d.IdUsuario)
                     .HasConstraintName("FK__UsuarioCu__IdUsu__3A81B327");
             });
+            _ = modelBuilder.Entity<Usuario>().HasData(
+    new Usuario { IdUsuario = 1, Nombre1 = "Fraiden", Apellido1 = "Restrepo", Correo = "fraiden@Gmail.com", NombreUsuario = "LOL", Contraseña = "123456" },
+    new Usuario { IdUsuario = 2, Nombre1 = "Chirs", Apellido1 = "lol", Correo = "cris@Gmail.com", NombreUsuario = "im", Contraseña = "1234567855" },
+    new Usuario { IdUsuario = 3, Nombre1 = "Andres", Apellido1 = "Venites", Correo = "Holi@Gmail.com", NombreUsuario = "elmatalocos", Contraseña = "1414" },
+    new Usuario { IdUsuario = 4, Nombre1 = "lolito", Apellido1 = "nedaños", Correo = "nada@Gmail.com", NombreUsuario = "LOL", Contraseña = "1313131" }
+    );
+
 
             OnModelCreatingPartial(modelBuilder);
         }

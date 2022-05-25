@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Flink.Infraestructure.Migrations
 {
-    public partial class firstmigration : Migration
+    public partial class second : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -71,6 +71,17 @@ namespace Flink.Infraestructure.Migrations
                         principalColumn: "IdUsuario");
                 });
 
+            migrationBuilder.InsertData(
+                table: "Usuario",
+                columns: new[] { "IdUsuario", "Apellido1", "Apellido2", "contraseña", "Correo", "Nombre1", "Nombre2", "NombreUsuario" },
+                values: new object[,]
+                {
+                    { 1, "Restrepo", null, "123456", "fraiden@Gmail.com", "Fraiden", null, "LOL" },
+                    { 2, "lol", null, "1234567855", "cris@Gmail.com", "Chirs", null, "im" },
+                    { 3, "Venites", null, "1414", "Holi@Gmail.com", "Andres", null, "elmatalocos" },
+                    { 4, "nedaños", null, "1313131", "nada@Gmail.com", "lolito", null, "LOL" }
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_UsuarioCurso_CodigoCurso",
                 table: "UsuarioCurso",
@@ -84,9 +95,6 @@ namespace Flink.Infraestructure.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "TblUsuario");
-
             migrationBuilder.DropTable(
                 name: "UsuarioCurso");
 
