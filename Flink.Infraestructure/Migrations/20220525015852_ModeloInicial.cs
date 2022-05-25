@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Flink.Infraestructure.Migrations
 {
-    public partial class second : Migration
+    public partial class ModeloInicial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

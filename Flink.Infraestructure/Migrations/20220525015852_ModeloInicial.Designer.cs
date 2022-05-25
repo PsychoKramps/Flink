@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Flink.Infraestructure.Migrations
 {
     [DbContext(typeof(FlinkContext))]
-    [Migration("20220525005641_second")]
-    partial class second
+    [Migration("20220525015852_ModeloInicial")]
+    partial class ModeloInicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
