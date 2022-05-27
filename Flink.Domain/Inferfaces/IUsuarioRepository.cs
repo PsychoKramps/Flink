@@ -9,7 +9,11 @@ namespace Flink.Domain.Inferfaces
 {
         public interface IUsuarioRepository
         {
-            IEnumerable<Usuario> GetUsuarios();
-        }
+           
+        IEnumerable<Usuario> GetUsuarios();
+        IEnumerable<Usuario> GetUsuarios(int id);
+
+         void InsertUsuario(Usuario usuario);
+         }
     
 }

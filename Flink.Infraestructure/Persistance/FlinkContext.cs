@@ -17,7 +17,7 @@ namespace Flink.Infraestructure.Persistance
         }
 
         public virtual DbSet<Curso> Cursos { get; set; } = null!;
-        public virtual DbSet<Usuario> Usuarios { get; set; } = null!;
+        public virtual DbSet<Usuario> Usuario { get; set; } = null!;
         public virtual DbSet<UsuarioCurso> UsuarioCursos { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

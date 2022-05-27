@@ -18,8 +18,23 @@ namespace Flink.Infraestructure.Repositories
         }
         public IEnumerable<Usuario> GetUsuarios()
         {
-            return _context.Usuarios;
+            return _context.Usuario;
 
+        }
+
+        public IEnumerable<Usuario> GetUsuarios( int id)
+        {
+            _context.Usuario .FirstOrDefault(x => x.IdUsuario ==  id);
+            return _context.Usuario;
+
+        }
+
+        public void InsertUsuario (Usuario usuario)
+        {
+            _context.Usuario.Add(usuario);
+            _context.SaveChanges();
+  
         }
     }
 }
+ 
