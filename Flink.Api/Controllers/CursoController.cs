@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Flink.Domain.Inferfaces;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Flink.Api.Controllers
 {
@@ -6,5 +7,16 @@ namespace Flink.Api.Controllers
     [ApiController]
     public class CursoController : ControllerBase
     {
+        private readonly ICursoRepository _repository;
+        public CursoController(ICursoRepository repository)
+        {
+            _repository = repository;
+        }
+
+        [HttpGet]
+        public ActionResult Get()
+        {
+            return Ok(_repository.GetCursos());
+        }
     }
 }

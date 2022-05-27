@@ -8,7 +8,6 @@ namespace Flink.Api.Controllers
     [Route("api/[controller]")]
     [ApiController]
 
-
     public class UsuarioController : ControllerBase
     {
         private readonly IUsuarioRepository  _repository;

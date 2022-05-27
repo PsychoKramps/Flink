@@ -15,7 +15,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<FlinkContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Flink")));
 
 //registrar dependendencias
-builder.Services.AddTransient<IUsuarioRepository,UsuarioRepository>();  
+builder.Services.AddTransient<IUsuarioRepository,UsuarioRepository>();
+builder.Services.AddTransient<ICursoRepository, CursoRepository>();
 
 var app = builder.Build();
 

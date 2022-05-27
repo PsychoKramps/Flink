@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Flink.Domain.Inferfaces
 {
-        public interface IUsuarioRepository
-        {
-            IEnumerable<Usuario> GetUsuarios();
-        }
-    
+    public interface ICursoRepository
+    {
+        IEnumerable<Curso> GetCursos();
+    }
 }
