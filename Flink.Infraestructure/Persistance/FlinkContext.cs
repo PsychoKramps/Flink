@@ -105,12 +105,20 @@ namespace Flink.Infraestructure.Persistance
                     .HasForeignKey(d => d.IdUsuario)
                     .HasConstraintName("FK__UsuarioCu__IdUsu__3A81B327");
             });
-            _ = modelBuilder.Entity<Usuario>().HasData(
-    new Usuario { IdUsuario = 1, Nombre1 = "Fraiden", Apellido1 = "Restrepo", Correo = "fraiden@Gmail.com", NombreUsuario = "LOL", Contraseña = "123456" },
-    new Usuario { IdUsuario = 2, Nombre1 = "Chirs", Apellido1 = "lol", Correo = "cris@Gmail.com", NombreUsuario = "im", Contraseña = "1234567855" },
-    new Usuario { IdUsuario = 3, Nombre1 = "Andres", Apellido1 = "Venites", Correo = "Holi@Gmail.com", NombreUsuario = "elmatalocos", Contraseña = "1414" },
-    new Usuario { IdUsuario = 4, Nombre1 = "lolito", Apellido1 = "nedaños", Correo = "nada@Gmail.com", NombreUsuario = "LOL", Contraseña = "1313131" }
-    );
+
+            modelBuilder.Entity<Usuario>().HasData(
+                new Usuario { IdUsuario = 1, Nombre1 = "Fraiden", Apellido1 = "Restrepo", Correo = "fraiden@Gmail.com", NombreUsuario = "LOL", Contraseña = "123456" },
+                new Usuario { IdUsuario = 2, Nombre1 = "Chirs", Apellido1 = "lol", Correo = "cris@Gmail.com", NombreUsuario = "im", Contraseña = "1234567855" },
+                new Usuario { IdUsuario = 3, Nombre1 = "Andres", Apellido1 = "Venites", Correo = "Holi@Gmail.com", NombreUsuario = "elmatalocos", Contraseña = "1414" },
+                new Usuario { IdUsuario = 4, Nombre1 = "lolito", Apellido1 = "nedaños", Correo = "nada@Gmail.com", NombreUsuario = "LOL", Contraseña = "1313131" }
+                );
+
+            modelBuilder.Entity<Curso>().HasData(
+                new Curso { Codigo = 1, NombreCurso = "Curso de JavaScript", UrlCurso = "https://www.youtube.com/watch?v=z95mZVUcJ-E", Fecha = DateTime.Now, Duracion = new TimeSpan(10, 00, 40), Descripcion = "Conoce los conceptos clave del lenguaje de programación que se está comiendo al mundo. Aprende qué es una variable, una función, un objeto y dónde se guardan esos valores. Descubre qué es Scope y cómo se utilizan los loops.", TipoCurso = "Programacion", Categoria = "Desarrollo de software" },
+                new Curso { Codigo = 2, NombreCurso = "Curso de Python", UrlCurso = "https://www.youtube.com/watch?v=swdcD6OPMlk", Fecha = DateTime.Now, Duracion = new TimeSpan(9, 08, 40), Descripcion = "Aprende Python 3 como un profesional empezando por las bases hasta programar tus propios algoritmos o juegos completos", TipoCurso = "Programacion", Categoria = "Desarrollo de software" },
+                new Curso { Codigo = 3, NombreCurso = "Curso de PHP", UrlCurso = "https://www.youtube.com/watch?v=nCB1gEkRZ1g", Fecha = DateTime.Now, Duracion = new TimeSpan(7, 29, 40), Descripcion = "¡Aprende PHP, el lenguaje de programación para backend presente en el 80% de sitios web! Inicia tu ruta de aprendizaje como PHP Developer y desarrolla tus primeros algoritmos con tu profesor Retax Master.", TipoCurso = "Programacion", Categoria = "Desarrollo de software" },
+                new Curso { Codigo = 4, NombreCurso = "Curso de C#", UrlCurso = "https://www.youtube.com/watch?v=TqiysLEBZo4", Fecha = DateTime.Now, Duracion = new TimeSpan(6, 29, 40), Descripcion = "Avanza tu camino en el mundo de la programación con C#, uno de los lenguajes más utilizados en desarrollo web y videojuegos, con tu profesor Ricardo Celis.", TipoCurso = "Programacion", Categoria = "Desarrollo de software" }
+                );
 
 
             OnModelCreatingPartial(modelBuilder);
