@@ -7,13 +7,10 @@ using System.Threading.Tasks;
 
 namespace Flink.Domain.Inferfaces
 {
-        public interface IUsuarioRepository
-        {
-           
-        IEnumerable<Usuario> GetUsuarios();
-        IEnumerable<Usuario> GetUsuarios(int id);
-
-         void InsertUsuario(Usuario usuario);
-         }
-    
+   public interface IUsuarioRepository
+   {
+     IEnumerable<Usuario> GetUsuarios();
+     IEnumerable<Usuario> GetUsuarios(int id);
+     void InsertUsuario(Usuario usuario);
+   }
 }
