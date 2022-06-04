@@ -10,7 +10,7 @@ namespace Flink.Domain.Inferfaces
     public interface ICursoRepository
     {
         IEnumerable<Curso> GetCursos();
-        IEnumerable<Curso> GetCursosId(int id);
+        Curso GetCursosId(int id);
         void InsertCurso(Curso curso);
         void UpdateCursos(Curso curso);
     }

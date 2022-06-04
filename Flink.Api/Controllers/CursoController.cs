@@ -23,7 +23,7 @@ namespace Flink.Api.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetId(int id)
+        public ActionResult GetId(int id)
         {
             return Ok(_repository.GetCursosId(id));
         }
@@ -51,6 +51,7 @@ namespace Flink.Api.Controllers
         {
             var curso = new Curso
             {
+                Codigo = request.Codigo,
                 NombreCurso=request.NombreCurso,
                 UrlCurso=request.UrlCurso,
                 Fecha=request.Fecha,
@@ -60,7 +61,7 @@ namespace Flink.Api.Controllers
                 Categoria=request.Categoria,
             };
 
-            _repository.UpdateCursos(curso, CursosExistentes);
+            _repository.UpdateCursos(curso);
             return Ok();
         }
     }

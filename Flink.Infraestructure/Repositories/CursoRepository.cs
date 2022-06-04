@@ -20,10 +20,10 @@ namespace Flink.Infraestructure.Repositories
             return _context.Cursos;
         }
 
-        public IEnumerable<Curso> GetCursosId(int id)
+        public Curso GetCursosId(int id)
         {
-            _context.Cursos.FirstOrDefault(x => x.Codigo == id);
-            return _context.Cursos;
+           var returnCurso =  _context.Cursos.FirstOrDefault(x => x.Codigo == id);
+            return returnCurso;
         }
 
         public void InsertCurso(Curso curso)
@@ -35,6 +35,7 @@ namespace Flink.Infraestructure.Repositories
         public void UpdateCursos(Curso curso)
         {
             var DataCursos = _context.Cursos.FirstOrDefault(x => x.Codigo == curso.Codigo);
+            DataCursos.Codigo = curso.Codigo;
             DataCursos.NombreCurso = curso.NombreCurso;
             DataCursos.UrlCurso = curso.UrlCurso;
             DataCursos.Fecha = curso.Fecha;
