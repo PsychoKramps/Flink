@@ -64,5 +64,12 @@ namespace Flink.Api.Controllers
             _repository.UpdateCursos(curso);
             return Ok();
         }
+
+        [HttpDelete("{id}")]
+        public ActionResult Delete(int id)
+        {
+            _repository.DeleteCursos(id);
+            return Ok();
+        }
     }
 }
