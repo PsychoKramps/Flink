@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Flink.Application
 {
-    static class ConfigureServices
+    public static class ConfigureServices
     {
 
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)

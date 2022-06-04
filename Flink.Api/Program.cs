@@ -1,3 +1,4 @@
+using Flink.Application;
 using Flink.Domain.Inferfaces;
 using Flink.Infraestructure.Persistance;
 using Flink.Infraestructure.Repositories;
@@ -10,6 +11,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers()
 .AddFluentValidation();
+
+builder.Services.AddApplicationServices();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

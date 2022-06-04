@@ -1,4 +1,5 @@
-﻿using Flink.Application.Requests;
+﻿using AutoMapper;
+using Flink.Application.Requests;
 using Flink.Domain.Inferfaces;
 using Flink.Infraestructure.Persistance;
 using Microsoft.AspNetCore.Mvc;
@@ -9,10 +10,12 @@ namespace Flink.Api.Controllers
     [ApiController]
     public class CursoController : ControllerBase
     {
+        private readonly IMapper _mapper;
         private readonly ICursoRepository _repository;
-        public CursoController(ICursoRepository repository)
+        public CursoController(ICursoRepository repository, IMapper mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -31,17 +34,7 @@ namespace Flink.Api.Controllers
         [HttpPost]
         public IActionResult Post(CursoRequest request)
         {
-            var curso = new Curso
-            {
-                NombreCurso = request.NombreCurso,
-                UrlCurso = request.UrlCurso,
-                Fecha  = request.Fecha,
-                Duracion = request.Duracion,
-                Descripcion = request.Descripcion,
-                TipoCurso = request.TipoCurso,
-                Categoria = request.Categoria,
-            };
-
+            var curso = _mapper.Map<Curso>(request);
             _repository.InsertCurso(curso);
             return Ok();
         }
