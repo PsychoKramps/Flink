@@ -21,7 +21,6 @@ namespace Flink.Api.Controllers
         [HttpGet]
         public ActionResult Get()
         {
-
             return Ok(_repository.GetCursos());
         }
 
@@ -42,18 +41,7 @@ namespace Flink.Api.Controllers
         [HttpPut]
         public IActionResult Put(CursoRequest request)
         {
-            var curso = new Curso
-            {
-                Codigo = request.Codigo,
-                NombreCurso=request.NombreCurso,
-                UrlCurso=request.UrlCurso,
-                Fecha=request.Fecha,
-                Duracion=request.Duracion,
-                Descripcion=request.Descripcion,
-                TipoCurso=request.TipoCurso,
-                Categoria=request.Categoria,
-            };
-
+            var curso = _mapper.Map<Curso>(request);
             _repository.UpdateCursos(curso);
             return Ok();
         }

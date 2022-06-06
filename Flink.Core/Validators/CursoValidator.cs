@@ -15,7 +15,19 @@ namespace Flink.Application.Validators
         {
             RuleFor(x => x.UrlCurso)
                     .NotEmpty()
-                    .WithMessage("URL del curso requerido");
+                    .WithMessage("Campo requerido");
+
+            RuleFor(x => x.NombreCurso)
+                    .NotEmpty()
+                    .WithMessage("Campo requerido");
+
+            RuleFor(x => x.Descripcion)
+                    .NotEmpty()
+                    .WithMessage("Campo requerido");
+
+            RuleFor(x => x.Categoria)
+                    .NotEmpty()
+                    .WithMessage("Campo requerido");
 
         }
     }
