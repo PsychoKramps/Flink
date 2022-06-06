@@ -22,7 +22,7 @@ namespace Flink.Infraestructure.Repositories
 
         public Curso GetCursosId(int id)
         {
-           var returnCurso =  _context.Cursos.FirstOrDefault(x => x.Codigo == id);
+            var returnCurso = _context.Cursos.FirstOrDefault(x => x.Codigo == id);
             return returnCurso;
         }
 

@@ -9,7 +9,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers()
+
+builder.Services.AddControllers(
+    options =>
+    {
+        //Se registra el manejo de excepciones de forma global
+        options.Filters.Add<GlobalExceptionFilter>();
+    })
 .AddFluentValidation();
 
 builder.Services.AddApplicationServices();

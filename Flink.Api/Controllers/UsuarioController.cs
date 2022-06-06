@@ -1,4 +1,5 @@
-﻿using Flink.Domain.Inferfaces;
+﻿using AutoMapper;
+using Flink.Domain.Inferfaces;
 using Flink.Infraestructure.Persistance;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -10,9 +11,10 @@ namespace Flink.Api.Controllers
 
     public class UsuarioController : ControllerBase
     {
+        private readonly IMapper _mapper;
         private readonly IUsuarioRepository _repository;
-        public UsuarioController(IUsuarioRepository repository)
-        {
+        public UsuarioController(IUsuarioRepository repository, IMapper mapper)
+        {   _mapper = mapper;
             _repository = repository;
         }
 
@@ -34,6 +36,7 @@ namespace Flink.Api.Controllers
         [HttpPost]
         public IActionResult Post(Usuario usuario)
         {
+            var curso = _mapper.Map<Usuario>(usuario);
            _repository.InsertUsuario(usuario);
 
             return Ok();
