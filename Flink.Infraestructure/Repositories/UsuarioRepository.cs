@@ -23,9 +23,8 @@ namespace Flink.Infraestructure.Repositories
         }
 
         public Usuario GetUsuarios(int id)
-        {
-            var ReturnUsuario = _context.Usuario.FirstOrDefault(x => x.IdUsuario ==  id);
-            return ReturnUsuario;
+        {   
+            return _context.Usuario.FirstOrDefault(x => x.IdUsuario == id);
         }
 
         public void InsertUsuario(Usuario usuario)

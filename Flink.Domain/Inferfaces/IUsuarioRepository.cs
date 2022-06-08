@@ -13,6 +13,6 @@ namespace Flink.Domain.Inferfaces
      Usuario GetUsuarios(int id);
      void InsertUsuario(Usuario usuario);
      void UpdateUsuario(Usuario usuario);
-     void DeleteUsuario(int id);
+     void DeleteUsuario(int idUsuario);
    }
 }

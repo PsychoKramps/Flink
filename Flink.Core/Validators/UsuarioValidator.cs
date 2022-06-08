@@ -3,7 +3,7 @@ using FluentValidation;
 
 namespace Flink.Application.Validators
 {
-    public class UsuarioValidator : AbstractValidator<UsuarioRequest>
+    public class UsuarioValidator : AbstractValidator<CreateUsuarioRequest>
     {
         public UsuarioValidator()
         {
@@ -24,10 +24,6 @@ namespace Flink.Application.Validators
                     .NotEmpty()
                     .WithMessage("Nombre de Usuario obligatorio");
 
-            RuleFor(x => x.Contraseña)
-                    .NotEmpty()
-                    .Length(8)
-                    .WithMessage("La contraseña debe de tener mas de 8 digitos");
         }
 
     }

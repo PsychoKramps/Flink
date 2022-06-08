@@ -14,8 +14,16 @@ namespace Flink.Application.Mappings
 
         public UsuarioMappingProfile()
         {
-            CreateMap<UsuarioRequest, Usuario>();
-            CreateMap<Usuario, UsuarioRequest>(); 
+            CreateMap<GetUsuarioByIDRequest, Usuario>();
+            CreateMap<Usuario, GetUsuarioByIDRequest>();
+
+            CreateMap<CreateUsuarioRequest, Usuario>();
+            CreateMap<Usuario, CreateUsuarioRequest>();
+
+            CreateMap<UpdateUsuarioRequest, Usuario>();
+            CreateMap<Usuario, UpdateUsuarioRequest>();
+
+
         }
     }
 }
