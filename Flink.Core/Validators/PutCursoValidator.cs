@@ -8,26 +8,26 @@ using System.Threading.Tasks;
 
 namespace Flink.Application.Validators
 {
-    public class CursoValidator : AbstractValidator<GetCursoRequest>
+    public class PutCursoValidator : AbstractValidator<PutCursoRequest>
     {
 
-        public CursoValidator()
+        public PutCursoValidator()
         {
             RuleFor(x => x.UrlCurso)
                     .NotEmpty()
-                    .WithMessage("Campo requerido");
+                    .WithMessage("Url del curso requerido");
 
             RuleFor(x => x.NombreCurso)
                     .NotEmpty()
-                    .WithMessage("Campo requerido");
+                    .WithMessage("Nombre del curso requerido");
 
             RuleFor(x => x.Descripcion)
                     .NotEmpty()
-                    .WithMessage("Campo requerido");
+                    .WithMessage("Descripción del curso requerido");
 
             RuleFor(x => x.Categoria)
                     .NotEmpty()
-                    .WithMessage("Campo requerido");
+                    .WithMessage("Categoría del curso requerido");
 
         }
     }

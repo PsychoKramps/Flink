@@ -8,7 +8,6 @@ namespace Flink.Application.Requests
 {
     public class PostCursoRequest
     {
-        public int Codigo { get; set; }
         public string NombreCurso { get; set; } = null!;
         public string UrlCurso { get; set; } = null!;
         public DateTime Fecha { get; set; }

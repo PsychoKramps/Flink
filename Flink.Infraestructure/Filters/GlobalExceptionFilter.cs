@@ -16,7 +16,7 @@ namespace Flink.Infraestructure.Filters
             //Este se ejecuta cuando ocurre una excepción no controlada
             var validation = new
             {
-                Status = 400,
+                Status = 500,
                 Title = "Ha ocurrido una excepción en el sistema",
                 Detalle = context.Exception.Message
             };
