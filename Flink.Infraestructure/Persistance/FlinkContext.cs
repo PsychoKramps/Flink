@@ -95,12 +95,12 @@ namespace Flink.Infraestructure.Persistance
             {
                 entity.ToTable("UsuarioCurso");
 
-                entity.HasOne(d => d.CodigoCursoNavigation)
+                entity.HasOne(d => d.Curso)
                     .WithMany(p => p.UsuarioCursos)
                     .HasForeignKey(d => d.CodigoCurso)
                     .HasConstraintName("FK__UsuarioCu__Codig__3B75D760");
 
-                entity.HasOne(d => d.IdUsuarioNavigation)
+                entity.HasOne(d => d.Usuario)
                     .WithMany(p => p.UsuarioCursos)
                     .HasForeignKey(d => d.IdUsuario)
                     .HasConstraintName("FK__UsuarioCu__IdUsu__3A81B327");

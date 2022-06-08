@@ -3,14 +3,16 @@ using FluentValidation;
 
 namespace Flink.Application.Validators
 {
-    public class UsuarioValidator : AbstractValidator<CreateUsuarioRequest>
+    public class CreateUsuarioValidator : AbstractValidator<CreateUsuarioRequest>
     {
-        public UsuarioValidator()
+        public CreateUsuarioValidator()
         {
+
+
+            
             RuleFor(x => x.Nombre1)
                     .NotEmpty()
                     .WithMessage("Primer nombre obligatorio");
-
 
             RuleFor(x => x.Apellido1)
                     .NotEmpty()

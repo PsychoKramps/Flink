@@ -25,13 +25,11 @@ namespace Flink.Api.Controllers
             return Ok(_repository.GetUsuarios());
         }
 
-        
-        [HttpGet("{id}")]
-        public IActionResult Get(int id)
-        {
-            var Usuario = _repository.GetUsuarios(id);
 
-            return Ok(Usuario);
+        [HttpGet("{IdUsuario}")]
+        public IActionResult GetUsuarioByID([FromRoute] GetUsuarioByIDRequest request)
+        {
+            return Ok(_repository.GetUsuariosById(request.IdUsuario));
         }
 
         [HttpPost]
@@ -52,10 +50,10 @@ namespace Flink.Api.Controllers
             return Ok();
         }
 
-        [HttpDelete("{id}")]
-        public ActionResult Delete(int id)
+        [HttpDelete("{IdUsuario}")]
+        public IActionResult Delete([FromRoute] DeleteUsuarioRequest request)
         {
-            _repository.DeleteUsuario(id);
+            _repository.DeleteUsuario(request.IdUsuario);
             return Ok();
         }
     }
