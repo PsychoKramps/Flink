@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Flink.Application.Requests;
 using Flink.Domain.Inferfaces;
 using Flink.Infraestructure.Persistance;
 using Microsoft.AspNetCore.Http;
@@ -39,6 +40,22 @@ namespace Flink.Api.Controllers
             var curso = _mapper.Map<Usuario>(usuario);
            _repository.InsertUsuario(usuario);
 
+            return Ok();
+
+        }
+
+        [HttpPut]
+        public IActionResult Put(UpdateUsuarioRequest request)
+        {
+            var usuario = _mapper.Map<Usuario>(request);
+            _repository.UpdateUsuario(usuario);
+            return Ok();
+        }
+
+        [HttpDelete("{id}")]
+        public ActionResult Delete(int id)
+        {
+            _repository.DeleteUsuario(id);
             return Ok();
         }
     }
