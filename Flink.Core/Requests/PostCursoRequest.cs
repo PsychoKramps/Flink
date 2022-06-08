@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Flink.Application.Requests
 {
-    public class CursoRequest
+    public class PostCursoRequest
     {
         public int Codigo { get; set; }
         public string NombreCurso { get; set; } = null!;

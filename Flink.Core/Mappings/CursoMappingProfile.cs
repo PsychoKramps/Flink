@@ -8,8 +8,11 @@ namespace Flink.Application.Mappings
     {
         public CursoMappingProfile()
         {
-            CreateMap<CursoRequest, Curso>();
-            CreateMap<Curso, CursoRequest>();
+            CreateMap<PostCursoRequest, Curso>();
+            CreateMap<Curso, PostCursoRequest>();
+
+            CreateMap<PutCursoRequest, Curso>();
+            CreateMap<Curso, PutCursoRequest>();
 
         }
     }

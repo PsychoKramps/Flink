@@ -13,12 +13,10 @@ namespace Flink.Infraestructure.Filters
     {
         public void OnException(ExceptionContext context)
         {
-
-
             //Este se ejecuta cuando ocurre una excepción no controlada
             var validation = new
             {
-                Status = 500,
+                Status = 400,
                 Title = "Ha ocurrido una excepción en el sistema",
                 Detalle = context.Exception.Message
             };
@@ -26,9 +24,6 @@ namespace Flink.Infraestructure.Filters
             context.Result = new ObjectResult(validation);
             context.HttpContext.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
             context.ExceptionHandled = true;
-
-
-
         }
     }
 }

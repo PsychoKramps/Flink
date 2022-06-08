@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Flink.Application.Validators
 {
-    public class CursoValidator : AbstractValidator<CursoRequest>
+    public class CursoValidator : AbstractValidator<GetCursoRequest>
     {
 
         public CursoValidator()

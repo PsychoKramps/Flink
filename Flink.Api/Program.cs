@@ -1,5 +1,6 @@
 using Flink.Application;
 using Flink.Domain.Inferfaces;
+using Flink.Infraestructure.Filters;
 using Flink.Infraestructure.Persistance;
 using Flink.Infraestructure.Repositories;
 using FluentValidation.AspNetCore;

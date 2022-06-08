@@ -31,7 +31,7 @@ namespace Flink.Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(CursoRequest request)
+        public IActionResult Post(PostCursoRequest request)
         {
             var curso = _mapper.Map<Curso>(request);
             _repository.InsertCurso(curso);
@@ -39,7 +39,7 @@ namespace Flink.Api.Controllers
         }
 
         [HttpPut]
-        public IActionResult Put(CursoRequest request)
+        public IActionResult Put(PutCursoRequest request)
         {
             var curso = _mapper.Map<Curso>(request);
             _repository.UpdateCursos(curso);
