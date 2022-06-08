@@ -15,7 +15,8 @@ namespace Flink.Api.Controllers
         private readonly IMapper _mapper;
         private readonly IUsuarioRepository _repository;
         public UsuarioController(IUsuarioRepository repository, IMapper mapper)
-        {   _mapper = mapper;
+        {
+            _mapper = mapper;
             _repository = repository;
         }
 
@@ -25,20 +26,18 @@ namespace Flink.Api.Controllers
             return Ok(_repository.GetUsuarios());
         }
 
-        
-        [HttpGet("{id}")]
-        public IActionResult Get(int id)
-        {
-            var Usuario = _repository.GetUsuarios(id);
 
-            return Ok(Usuario);
+        [HttpGet("{IdUsuario}")]
+        public IActionResult GetUsuarioByID([FromRoute] GetUsuarioByIDRequest request)
+        {
+            return Ok(_repository.GetUsuariosById(request.IdUsuario));
         }
 
         [HttpPost]
         public IActionResult Post(Usuario usuario)
         {
             var curso = _mapper.Map<Usuario>(usuario);
-           _repository.InsertUsuario(usuario);
+            _repository.InsertUsuario(usuario);
 
             return Ok();
 
@@ -52,10 +51,10 @@ namespace Flink.Api.Controllers
             return Ok();
         }
 
-        [HttpDelete("{id}")]
-        public ActionResult Delete(int id)
+        [HttpDelete("{IdUsuario}")]
+        public IActionResult Delete([FromRoute] DeleteUsuarioRequest request)
         {
-            _repository.DeleteUsuario(id);
+            _repository.DeleteUsuario(request.IdUsuario);
             return Ok();
         }
     }

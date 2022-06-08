@@ -22,9 +22,9 @@ namespace Flink.Infraestructure.Repositories
 
         }
 
-        public Usuario GetUsuarios(int id)
-        {   
-            return _context.Usuario.FirstOrDefault(x => x.IdUsuario == id);
+        public Usuario GetUsuariosById(int idUsuario)
+        {
+            return _context.Usuario.FirstOrDefault(x => x.IdUsuario == idUsuario);
         }
 
         public void InsertUsuario(Usuario usuario)
@@ -49,10 +49,10 @@ namespace Flink.Infraestructure.Repositories
             _context.SaveChanges();
         }
 
-        public void DeleteUsuario(int id)
+        public void DeleteUsuario(int idUsuario)
         {
-            var returnUsuario = _context.Usuario.FirstOrDefault(x => x.IdUsuario == id);
-            _context.Usuario.Remove(returnUsuario);
+            var usuario = _context.Usuario.FirstOrDefault(x => x.IdUsuario == idUsuario);
+            _context.Usuario.Remove(usuario);
             _context.SaveChanges();
         }
     }
