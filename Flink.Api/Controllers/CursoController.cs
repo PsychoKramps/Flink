@@ -24,10 +24,10 @@ namespace Flink.Api.Controllers
             return Ok(_repository.GetCursos());
         }
 
-        [HttpGet("{id}")]
-        public ActionResult GetId(int id)
+        [HttpGet("{Codigo}")]
+        public ActionResult GetId([FromRoute] GetByIdCursoRequest request)
         {
-            return Ok(_repository.GetCursosId(id));
+            return Ok(_repository.GetCursosId(request.Codigo));
         }
 
         [HttpPost]
@@ -46,10 +46,10 @@ namespace Flink.Api.Controllers
             return Ok();
         }
 
-        [HttpDelete("{id}")]
-        public ActionResult Delete(int id)
+        [HttpDelete("{Codigo}")]
+        public ActionResult Delete([FromRoute] DeleteCursoRequest request)
         {
-            _repository.DeleteCursos(id);
+            _repository.DeleteCursos(request.Codigo);
             return Ok();
         }
     }
