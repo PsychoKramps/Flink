@@ -15,7 +15,8 @@ namespace Flink.Api.Controllers
         private readonly IMapper _mapper;
         private readonly IUsuarioRepository _repository;
         public UsuarioController(IUsuarioRepository repository, IMapper mapper)
-        {   _mapper = mapper;
+        {
+            _mapper = mapper;
             _repository = repository;
         }
 
@@ -36,7 +37,7 @@ namespace Flink.Api.Controllers
         public IActionResult Post(Usuario usuario)
         {
             var curso = _mapper.Map<Usuario>(usuario);
-           _repository.InsertUsuario(usuario);
+            _repository.InsertUsuario(usuario);
 
             return Ok();
 

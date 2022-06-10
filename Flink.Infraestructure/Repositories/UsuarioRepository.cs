@@ -23,7 +23,7 @@ namespace Flink.Infraestructure.Repositories
         }
 
         public Usuario GetUsuariosById(int idUsuario)
-        {   
+        {
             return _context.Usuario.FirstOrDefault(x => x.IdUsuario == idUsuario);
         }
 
