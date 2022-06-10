@@ -91,20 +91,20 @@ namespace Flink.Infraestructure.Persistance
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<UsuarioCurso>(entity =>
+            modelBuilder.Entity<UsuarioCurso>((Action<Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<UsuarioCurso>>)(entity =>
             {
-                entity.ToTable("UsuarioCurso");
+                entity.ToTable<UsuarioCurso>("UsuarioCurso");
 
-                entity.HasOne(d => d.CodigoCursoNavigation)
+                entity.HasOne<Curso>(d => d.Codigo)
                     .WithMany(p => p.UsuarioCursos)
                     .HasForeignKey(d => d.CodigoCurso)
-                    .HasConstraintName("FK__UsuarioCu__Codig__3B75D760");
+                    .HasConstraintName<Curso, UsuarioCurso>("FK__UsuarioCu__Codig__3B75D760");
 
-                entity.HasOne(d => d.IdUsuarioNavigation)
+                entity.HasOne<Usuario>(d => (Usuario?)d.IdUsuario)
                     .WithMany(p => p.UsuarioCursos)
-                    .HasForeignKey(d => d.IdUsuario)
-                    .HasConstraintName("FK__UsuarioCu__IdUsu__3A81B327");
-            });
+                    .HasForeignKey((System.Linq.Expressions.Expression<Func<UsuarioCurso, object?>>)(d => (object?)d.IdUsuario))
+                    .HasConstraintName<Usuario, UsuarioCurso>("FK__UsuarioCu__IdUsu__3A81B327");
+            }));
 
             modelBuilder.Entity<Usuario>().HasData(
                 new Usuario { IdUsuario = 1, Nombre1 = "Fraiden", Apellido1 = "Restrepo", Correo = "fraiden@Gmail.com", NombreUsuario = "LOL", Contraseña = "123456" },

@@ -9,7 +9,7 @@ namespace Flink.Infraestructure.Persistance
         public int? IdUsuario { get; set; }
         public int? CodigoCurso { get; set; }
 
-        public virtual Curso? CodigoCursoNavigation { get; set; }
-        public virtual Usuario? IdUsuarioNavigation { get; set; }
+        public virtual Curso? Codigo { get; set; }
+        public virtual Usuario? UsuarioId { get; set; }
     }
 }
