@@ -27,7 +27,7 @@ namespace Flink.Api.Controllers
             return Ok(_repository.GetUsuarioCursos());
         }
 
-        [HttpGet("{IdUsuario}")]
+        [HttpGet("{UsuarioCursoId}")]
         public IActionResult GetUsuarioByID([FromRoute] GetByIdUsuarioCursoRequest request)
         {
             return Ok(_repository.GetUsuariosCursoById(request.UsuarioCursoId));
