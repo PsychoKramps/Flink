@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Flink.Application.Requests;
+using Flink.Application.Responses;
 using Flink.Infraestructure.Persistance;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,7 @@ namespace Flink.Application.Mappings
             CreateMap<UpdateUsuarioRequest, Usuario>();
             CreateMap<Usuario, UpdateUsuarioRequest>();
 
+            CreateMap<Usuario, UsuarioResponse>();
 
         }
     }
