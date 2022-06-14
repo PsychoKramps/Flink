@@ -2,7 +2,6 @@
 using Flink.Application.Requests;
 using Flink.Domain.Inferfaces;
 using Flink.Infraestructure.Persistance;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Flink.Api.Controllers
