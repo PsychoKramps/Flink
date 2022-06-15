@@ -20,8 +20,6 @@ namespace Flink.Api.Controllers
             var IsValideUser = ValidateUser(loginRequest);
             if (!IsValideUser)
                 return Unauthorized();
-            return Ok();
-
 
             var token = GenerateToken(loginRequest.UserName);
             return Ok( new {token});
@@ -64,7 +62,7 @@ namespace Flink.Api.Controllers
 
             var token = new JwtSecurityToken(header, payload);
             var jwtToken = new JwtSecurityTokenHandler().WriteToken(token);
-            return null;
+            return jwtToken;
         }
     }
 }
