@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Flink.Application.Inferfaces;
 using Flink.Application.Requests;
 using Flink.Domain.Inferfaces;
 using Flink.Infraestructure.Persistance;
@@ -10,46 +11,42 @@ namespace Flink.Api.Controllers
     [ApiController]
     public class CursoController : ControllerBase
     {
-        private readonly IMapper _mapper;
-        private readonly ICursoRepository _repository;
-        public CursoController(ICursoRepository repository, IMapper mapper)
+        private readonly ICursoService _Service;
+        public CursoController(ICursoService service)
         {
-            _repository = repository;
-            _mapper = mapper;
+            _Service = service;
         }
 
         [HttpGet]
         public ActionResult Get()
         {
-            return Ok(_repository.GetCursos());
+            return Ok(_Service.GetCursos());
         }
 
         [HttpGet("{Codigo}")]
         public ActionResult GetId([FromRoute] GetByIdCursoRequest request)
         {
-            return Ok(_repository.GetCursosId(request.Codigo));
+            return Ok(_Service.GetCursosId(request.Codigo));
         }
 
         [HttpPost]
         public IActionResult Post(PostCursoRequest request)
         {
-            var curso = _mapper.Map<Curso>(request);
-            _repository.InsertCurso(curso);
+            _Service.InsertCurso(request);
             return Ok();
         }
 
         [HttpPut]
         public IActionResult Put(PutCursoRequest request)
         {
-            var curso = _mapper.Map<Curso>(request);
-            _repository.UpdateCursos(curso);
+            _Service.UpdateCursos(request);
             return Ok();
         }
 
         [HttpDelete("{Codigo}")]
         public ActionResult Delete([FromRoute] DeleteCursoRequest request)
         {
-            _repository.DeleteCursos(request.Codigo);
+            _Service.DeleteCursos(request);
             return Ok();
         }
     }

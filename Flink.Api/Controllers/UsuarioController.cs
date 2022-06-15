@@ -19,9 +19,6 @@ namespace Flink.Api.Controllers
         public UsuarioController(IUsuarioService Service)
         {
             _Service = Service;
-            
-                
-            
         }
 
         [HttpGet]
@@ -38,9 +35,9 @@ namespace Flink.Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(CreateUsuarioRequest usuario)
+        public IActionResult Post(CreateUsuarioRequest request)
         {            
-            _Service.InsertUsuario(usuario);
+            _Service.InsertUsuario(request);
             return Ok();
         }
 

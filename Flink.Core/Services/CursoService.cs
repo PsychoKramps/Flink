@@ -1,11 +1,9 @@
 ﻿using AutoMapper;
+using Flink.Application.Inferfaces;
+using Flink.Application.Requests;
+using Flink.Application.Responses;
 using Flink.Domain.Inferfaces;
 using Flink.Infraestructure.Persistance;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Flink.Application.Services
 {
@@ -20,30 +18,35 @@ namespace Flink.Application.Services
             _mapper = mapper;
         }
 
-        public void Delete
-        public IEnumerable<Curso> GetCursos()
+        public void DeleteCursos(DeleteCursoRequest request)
         {
-            throw new NotImplementedException();
+            _repository.DeleteCursos(request.Codigo);
         }
 
-        public Curso GetCursosId(int id)
+        public IEnumerable<CursoResponse> GetCursos()
         {
-            throw new NotImplementedException();
+            var curso = _repository.GetCursos();
+            var cursoResponse = _mapper.Map<IEnumerable<CursoResponse>>(curso);
+            return cursoResponse;
         }
 
-        public void InsertCurso(Curso curso)
+        public CursoResponse GetCursosId(int codigo)
         {
-            throw new NotImplementedException();
+            var curso = _repository.GetCursosId(codigo);
+            var cursoResponse = _mapper.Map<CursoResponse>(curso);
+            return cursoResponse;
         }
 
-        public void UpdateCursos(Curso curso)
+        public void InsertCurso(PostCursoRequest curso)
         {
-            throw new NotImplementedException();
+            var cursoPost = _mapper.Map<Curso>(curso);
+            _repository.InsertCurso(cursoPost);
         }
 
-        public void DeleteCursos(int id)
+        public void UpdateCursos(PutCursoRequest curso)
         {
-            throw new NotImplementedException();
+            var CursoPut = _mapper.Map<Curso>(curso);
+            _repository.UpdateCursos(CursoPut);
         }
     }
 }
