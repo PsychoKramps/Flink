@@ -2,8 +2,11 @@
 using Flink.Application.Inferfaces;
 using Flink.Application.Requests;
 using Flink.Application.Responses;
+using Flink.Domain.Application;
 using Flink.Domain.Inferfaces;
 using Flink.Infraestructure.Persistance;
+
+
 
 namespace Flink.Application.Services
 {

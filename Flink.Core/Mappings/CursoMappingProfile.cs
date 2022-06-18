@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Flink.Application.Requests;
+using Flink.Application.Responses;
 using Flink.Infraestructure.Persistance;
 
 namespace Flink.Application.Mappings
@@ -13,6 +14,8 @@ namespace Flink.Application.Mappings
 
             CreateMap<PutCursoRequest, Curso>();
             CreateMap<Curso, PutCursoRequest>();
+
+            CreateMap<Curso, CursoResponse>();
 
         }
     }
