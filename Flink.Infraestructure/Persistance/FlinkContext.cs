@@ -100,7 +100,7 @@ namespace Flink.Infraestructure.Persistance
                     .HasForeignKey(d => d.CodigoCurso)
                     .HasConstraintName<Curso, UsuarioCurso>("FK__UsuarioCu__Codig__3B75D760");
 
-                entity.HasOne<Usuario>(d => (Usuario?)d.IdUsuario)
+                entity.HasOne<Usuario>(d => (Usuario?)d.UsuarioId)
                     .WithMany(p => p.UsuarioCursos)
                     .HasForeignKey((System.Linq.Expressions.Expression<Func<UsuarioCurso, object?>>)(d => (object?)d.IdUsuario))
                     .HasConstraintName<Usuario, UsuarioCurso>("FK__UsuarioCu__IdUsu__3A81B327");

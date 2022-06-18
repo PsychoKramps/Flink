@@ -9,6 +9,7 @@ using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using System.Reflection;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,7 +28,23 @@ builder.Services.AddControllers(
 builder.Services.AddApplicationServices();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+    {
+        Title = "Flink",
+        Description = "Estas son los endpoints disponibles para la API flink"
+    });
+
+    //Obtener de forma dinamica el nombre del archivo
+    var nombreArchivo = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+
+    //Creamos una variable con la ruta completa del archivo
+    var xmlPath = Path.Combine(AppContext.BaseDirectory, nombreArchivo);
+
+    options.IncludeXmlComments(xmlPath);
+});
+
 
 builder.Services.AddDbContext<FlinkContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Flink")));
 
@@ -66,7 +83,9 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
+    app.UseSwagger(
+        
+        );
     app.UseSwaggerUI();
 }
 

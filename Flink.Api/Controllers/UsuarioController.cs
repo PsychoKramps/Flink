@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Flink.Application.Requests;
+using Flink.Application.Responses;
 using Flink.Application.Services;
 using Flink.Domain.Application;
 using Flink.Domain.Inferfaces;
@@ -7,45 +8,67 @@ using Flink.Infraestructure.Persistance;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace Flink.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
-
+    //[Authorize]
+    [Produces("application/json")]
     public class UsuarioController : ControllerBase
     {
-        
+
         private readonly IUsuarioService _Service;
         public UsuarioController(IUsuarioService Service)
         {
             _Service = Service;
-            
-                
-            
+
+
+
         }
 
+
+
+        /// <summary>
+        /// Retorna un listado con todas los usuarios registradoss
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
+        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(IEnumerable<UsuarioResponse>))]
+        [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(ProblemDetails))]
         public IActionResult Get()
         {
             return Ok(_Service.GetUsuarios());
         }
 
 
-        [HttpGet("{IdUsuario}")]
+
+
         /// <summary>
-        /// Trae Usuario Por ID
+        /// Permite consultar la información de una sala por su id
         /// </summary>
+        /// <param name="request">Identificador de la sala a buscar</param>
+        /// <returns></returns>
+        [HttpGet("{IdUsuario}")]
+        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(UsuarioResponse))]
+        [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(ProblemDetails))]
 
         public IActionResult GetUsuarioByID([FromRoute] GetUsuarioByIDRequest request)
         {
             return Ok(_Service.GetUsuariosById(request.IdUsuario));
         }
 
+        /// <summary>
+        /// Permite insertar una sala
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Post(CreateUsuarioRequest usuario)
-        {            
+        {
             _Service.InsertUsuario(usuario);
             return Ok();
         }
