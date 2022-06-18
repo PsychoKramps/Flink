@@ -7,7 +7,10 @@ using Flink.Infraestructure.Filters;
 using Flink.Infraestructure.Persistance;
 using Flink.Infraestructure.Repositories;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,6 +38,31 @@ builder.Services.AddTransient<ICursoService, CursoService>();
 builder.Services.AddTransient<IUsuarioRepository,UsuarioRepository>();
 builder.Services.AddTransient<ICursoRepository, CursoRepository>();
 
+//RegistarAutenticación con JWT
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(options =>
+{
+    //Se definen parametros de validacion del token
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = "https://localhost:7238",
+        ValidAudience = "https://localhost:7238",
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("asdasdadasdasdasdgjdkwalsk"))
+    };
+});
+
+
+
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -45,7 +73,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
