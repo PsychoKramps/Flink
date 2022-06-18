@@ -34,6 +34,10 @@ namespace Flink.Api.Controllers
 
 
         [HttpGet("{IdUsuario}")]
+        /// <summary>
+        /// Trae Usuario Por ID
+        /// </summary>
+
         public IActionResult GetUsuarioByID([FromRoute] GetUsuarioByIDRequest request)
         {
             return Ok(_Service.GetUsuariosById(request.IdUsuario));
