@@ -4,11 +4,6 @@ using Flink.Application.Responses;
 using Flink.Domain.Application;
 using Flink.Domain.Inferfaces;
 using Flink.Infraestructure.Persistance;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Flink.Application.Services
 {
@@ -39,7 +34,7 @@ namespace Flink.Application.Services
         public UsuarioResponse GetUsuariosById(int idUsuario)
         {
             var usuario = _repository.GetUsuariosById(idUsuario);
-            var usuarioReponse = _mapper.Map<UsuarioResponse>(usuario); ;
+            var usuarioReponse = _mapper.Map<UsuarioResponse>(usuario);
             return usuarioReponse;
         }
 
