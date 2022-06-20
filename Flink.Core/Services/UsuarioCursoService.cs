@@ -4,11 +4,6 @@ using Flink.Application.Requests;
 using Flink.Application.Responses;
 using Flink.Domain.Inferfaces;
 using Flink.Infraestructure.Persistance;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Flink.Application.Services
 {

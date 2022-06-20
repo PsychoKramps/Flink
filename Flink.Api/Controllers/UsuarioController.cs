@@ -1,12 +1,6 @@
-﻿using AutoMapper;
-using Flink.Application.Requests;
+﻿using Flink.Application.Requests;
 using Flink.Application.Responses;
-using Flink.Application.Services;
 using Flink.Domain.Application;
-using Flink.Domain.Inferfaces;
-using Flink.Infraestructure.Persistance;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 

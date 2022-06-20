@@ -37,9 +37,9 @@ namespace Flink.Infraestructure.Repositories
         public void UpdateUsuarioCurso(UsuarioCurso usuariocurso)
         {
 
-            var DataUsuarioCurso = _context.UsuarioCursos.FirstOrDefault(x => x.UsuarioCursoId == usuariocurso.IdUsuario);
+            var DataUsuarioCurso = _context.UsuarioCursos.FirstOrDefault(x => x.UsuarioCursoId == usuariocurso.UsuarioCursoId);
             DataUsuarioCurso.UsuarioCursoId = usuariocurso.UsuarioCursoId;
-            DataUsuarioCurso.CodigoCurso = usuariocurso.IdUsuario;
+            DataUsuarioCurso.CodigoCurso = usuariocurso.CodigoCurso;
             DataUsuarioCurso.IdUsuario = usuariocurso.IdUsuario;
             _context.SaveChanges();
         }
