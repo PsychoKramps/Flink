@@ -56,6 +56,7 @@ builder.Services.AddTransient<ICursoService, CursoService>();
 builder.Services.AddTransient<ICursoUsuarioService, UsuarioCursoService>();
 builder.Services.AddTransient<IUsuarioRepository,UsuarioRepository>();
 builder.Services.AddTransient<ICursoRepository, CursoRepository>();
+builder.Services.AddTransient<IUsuarioCursoRepository, UsuarioCursoRepository>();
 
 //RegistarAutenticación con JWT
 

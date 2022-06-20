@@ -1,8 +1,5 @@
-﻿using AutoMapper;
-using Flink.Application.Inferfaces;
+﻿using Flink.Application.Inferfaces;
 using Flink.Application.Requests;
-using Flink.Domain.Inferfaces;
-using Flink.Infraestructure.Persistance;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Flink.Api.Controllers
