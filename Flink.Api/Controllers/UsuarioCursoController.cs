@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Flink.Application.Interfaces;
 using Flink.Application.Requests;
 using Flink.Domain.Inferfaces;
 using Flink.Infraestructure.Persistance;
@@ -10,51 +11,44 @@ namespace Flink.Api.Controllers
     [ApiController]
     public class UsuarioCursoController : ControllerBase
     {
-        private readonly IMapper _mapper;
-        private readonly IUsuarioCursoRepository _repository;
-
-        public UsuarioCursoController(IMapper mapper, IUsuarioCursoRepository repository)
+        private readonly ICursoUsuarioService _Service;
+        public UsuarioCursoController(ICursoUsuarioService service)
         {
-            _mapper = mapper;
-            _repository = repository;
+            _Service = service;
         }
 
 
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(_repository.GetUsuarioCursos());
+            return Ok(_Service.GetUsuarioCursos());
         }
 
         [HttpGet("{UsuarioCursoId}")]
         public IActionResult GetUsuarioByID([FromRoute] GetByIdUsuarioCursoRequest request)
         {
-            return Ok(_repository.GetUsuariosCursoById(request.UsuarioCursoId));
+            return Ok(_Service.GetUsuariosCursoById(request.UsuarioCursoId));
         }
 
         [HttpPost]
 
-        public IActionResult post(UsuarioCurso usuarioCurso)
+        public IActionResult post(PostUsuarioCursoRequest request)
         {
-            var Resultusuariocurso = _mapper.Map<UsuarioCurso>(usuarioCurso);
-            _repository.InsertUsuarioCurso(usuarioCurso);
-
+            _Service.InsertUsuarioCurso(request);
             return Ok();
-
         }
 
         [HttpPut]
         public IActionResult Put(UpdateUsuarioCursoRequest request)
         {
-            var usuariocurso = _mapper.Map<UsuarioCurso>(request);
-            _repository.UpdateUsuarioCurso(usuariocurso);
+            _Service.UpdateUsuarioCurso(request);
             return Ok();
         }
 
         [HttpDelete("{UsuarioCursoId}")]
         public IActionResult Delete([FromRoute] DeleteUsuarioCursoRequest request)
         {
-            _repository.DeleteUsuarioCurso(request.UsuarioCursoId);
+            _Service.DeleteUsuarioCurso(request);
             return Ok();
         }
     }

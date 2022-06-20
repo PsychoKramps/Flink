@@ -23,9 +23,6 @@ namespace Flink.Api.Controllers
         public UsuarioController(IUsuarioService Service)
         {
             _Service = Service;
-
-
-
         }
 
 

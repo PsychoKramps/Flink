@@ -1,5 +1,6 @@
 using Flink.Application;
 using Flink.Application.Inferfaces;
+using Flink.Application.Interfaces;
 using Flink.Application.Services;
 using Flink.Domain.Application;
 using Flink.Domain.Inferfaces;
@@ -52,6 +53,7 @@ builder.Services.AddDbContext<FlinkContext>(options => options.UseSqlServer(buil
 //registrar dependendencias
 builder.Services.AddTransient<IUsuarioService, UsuarioService>();
 builder.Services.AddTransient<ICursoService, CursoService>();
+builder.Services.AddTransient<ICursoUsuarioService, UsuarioCursoService>();
 builder.Services.AddTransient<IUsuarioRepository,UsuarioRepository>();
 builder.Services.AddTransient<ICursoRepository, CursoRepository>();
 
