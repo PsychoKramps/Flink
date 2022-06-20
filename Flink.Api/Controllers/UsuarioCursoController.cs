@@ -6,6 +6,7 @@ namespace Flink.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+
     public class UsuarioCursoController : ControllerBase
     {
         private readonly ICursoUsuarioService _Service;
