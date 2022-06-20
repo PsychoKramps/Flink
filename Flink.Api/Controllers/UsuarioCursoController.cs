@@ -7,6 +7,10 @@ namespace Flink.Api.Controllers
     [Route("api/[controller]")]
     [ApiController]
 
+    /// <summary>
+    /// Crud tabla de relaciones, curso - usuario
+    /// </summary>
+    /// <returns></returns>
     public class UsuarioCursoController : ControllerBase
     {
         private readonly ICursoUsuarioService _Service;
