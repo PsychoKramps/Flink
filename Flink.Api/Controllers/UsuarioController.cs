@@ -1,6 +1,7 @@
 ﻿using Flink.Application.Requests;
 using Flink.Application.Responses;
 using Flink.Domain.Application;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
@@ -8,7 +9,7 @@ namespace Flink.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize]
+    [Authorize]
     [Produces("application/json")]
     public class UsuarioController : ControllerBase
     {
@@ -64,6 +65,10 @@ namespace Flink.Api.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Cambia cualquier dato de un Usuario de la lista.
+        /// </summary>
+        /// <returns></returns>
         [HttpPut]
         public IActionResult Put(UpdateUsuarioRequest request)
         {
@@ -71,6 +76,10 @@ namespace Flink.Api.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Elimina Usuarios de la lista.
+        /// </summary>
+        /// <returns></returns>
         [HttpDelete("{IdUsuario}")]
         public IActionResult Delete([FromRoute] DeleteUsuarioRequest request)
         {

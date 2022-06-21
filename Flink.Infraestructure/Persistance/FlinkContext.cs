@@ -19,9 +19,27 @@ namespace Flink.Infraestructure.Persistance
         public virtual DbSet<Curso> Cursos { get; set; } = null!;
         public virtual DbSet<Usuario> Usuario { get; set; } = null!;
         public virtual DbSet<UsuarioCurso> UsuarioCursos { get; set; } = null!;
-
+        public virtual DbSet<LoginUsuario> LoginUsuario { get; set; } = null!;
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+            modelBuilder.Entity<LoginUsuario>(entity =>{
+                entity.HasKey(e => e.IdAdmin)
+                .HasName("PK__LoginUsuario__");
+
+                entity.ToTable("LoginUsuario");
+
+                entity.Property(e => e.User)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Password)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Activo)
+                    .IsUnicode(false);
+            });
             modelBuilder.Entity<Curso>(entity =>
             {
                 entity.HasKey(e => e.Codigo)
@@ -52,7 +70,7 @@ namespace Flink.Infraestructure.Persistance
                 entity.Property(e => e.UrlCurso).IsUnicode(false);
             });
 
-        
+
 
             modelBuilder.Entity<Usuario>(entity =>
             {
