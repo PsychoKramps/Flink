@@ -41,9 +41,9 @@ builder.Services.AddSwaggerGen(options =>
 
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
-        Description = @"JWT Authorization header using the Bearer scheme. \r\n\r\n 
-                      Enter 'Bearer' [space] and then your token in the text input below.
-                      \r\n\r\nExample: 'Bearer 12345abcdef'",
+        Description = @"Encabezado de autorización JWT utilizando el esquema Bearer. \r\n\r\n
+                      Ingrese 'Bearer' [espacio] y luego su token en la entrada de texto a continuación.
+                      \r\n\r\nEjemplo: 'Bearer de su token'",
         Name = "Authorization",
         In = ParameterLocation.Header,
         Type = SecuritySchemeType.ApiKey,
@@ -88,6 +88,8 @@ builder.Services.AddTransient<ICursoUsuarioService, UsuarioCursoService>();
 builder.Services.AddTransient<IUsuarioRepository,UsuarioRepository>();
 builder.Services.AddTransient<ICursoRepository, CursoRepository>();
 builder.Services.AddTransient<IUsuarioCursoRepository, UsuarioCursoRepository>();
+builder.Services.AddTransient<IUserLoginRepository, UserLoginRepository>();
+builder.Services.AddTransient<ILoginUsuarioService, LoginUserService>();
 
 //RegistarAutenticación con JWT
 

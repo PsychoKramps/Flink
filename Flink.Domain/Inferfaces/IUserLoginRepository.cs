@@ -4,10 +4,10 @@ namespace Flink.Domain.Inferfaces
 {
     public interface IUserLoginRepository
     {
-        IEnumerable<LoginUsuario> GetUsuarios();
-        LoginUsuario GetUsuariosById(int id);
-        void InsertUsuario(LoginUsuario loginusuario);
-        void UpdateUsuario(LoginUsuario loginusuario);
-        void DeleteUsuario(int idAdmin);
+        IEnumerable<LoginUsuario> GetLoginUsuario();
+        LoginUsuario GetLoginUsuarioById(int id);
+        void InsertLoginUsuario(LoginUsuario loginusuario);
+        // void UpdateLoginUsuario(LoginUsuario loginusuario);
+        // void DeleteLoginUsuario(int idAdmin);
     }
 }

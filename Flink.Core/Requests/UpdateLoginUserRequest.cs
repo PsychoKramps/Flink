@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Flink.Application.Requests
 {
-    public class GetByIdLoginUser
+    public class UpdateLoginUserRequest
     {
         public int IdAdmin { get; set; }
         public string User { get; set; } = null!;

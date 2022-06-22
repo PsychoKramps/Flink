@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Flink.Application.Interfaces
+namespace Flink.Application.Requests
 {
-    public interface LoginUsuarioService
+    public class GetByIdLoginUserRequest
     {
-
+        public int IdAdmin { get; set; }
     }
 }

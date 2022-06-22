@@ -1,39 +1,31 @@
 ﻿using Flink.Domain.Inferfaces;
 using Flink.Infraestructure.Persistance;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Flink.Infraestructure.Repositories
 {
-    public class UserLoginRepository 
+    public class UserLoginRepository : IUserLoginRepository
     {
         private FlinkContext _context;
-        public void DeleteUsuario(int idUsuario)
+
+        public UserLoginRepository(FlinkContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
         }
 
-        public IEnumerable<LoginUsuario> GetUsuarios()
+        public IEnumerable<LoginUsuario> GetLoginUsuario()
         {
-            throw new NotImplementedException();
+            return _context.LoginUsuario;
         }
 
-        public Usuario GetUsuariosById(int id)
+        public LoginUsuario GetLoginUsuarioById(int id)
         {
-            throw new NotImplementedException();
+            return _context.LoginUsuario.FirstOrDefault(x => x.IdAdmin == id);
+        }
+        public void InsertLoginUsuario(LoginUsuario loginusuario)
+        {
+            _context.LoginUsuario.Add(loginusuario);
+            _context.SaveChanges();
         }
 
-        public void InsertUsuario(Usuario usuario)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateUsuario(Usuario usuario)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

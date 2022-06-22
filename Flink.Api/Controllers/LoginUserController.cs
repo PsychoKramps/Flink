@@ -1,12 +1,35 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Flink.Application.Interfaces;
+using Flink.Application.Requests;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Flink.Api.Controllers
 {
-    public class LoginUserController : Controller
+    public class LoginUserController : ControllerBase
     {
-        public IActionResult Index()
+        private readonly ILoginUsuarioService _Service;
+
+        public LoginUserController(ILoginUsuarioService service)
         {
-            return View();
+            _Service = service;
+        }
+
+        [HttpGet]
+        public ActionResult Get()
+        {
+            return Ok(_Service.GetLoginUsuario());
+        }
+
+        [HttpGet("{IdAdmin}")]
+        public ActionResult GetId([FromRoute] GetByIdLoginUserRequest request)
+        {
+            return Ok(_Service.GetLoginUsuarioById(request.IdAdmin));
+        }
+
+        [HttpPost]
+        public IActionResult Post(PostUserLoginRequest request)
+        {
+            _Service.InsertLoginUsuario(request);
+            return Ok();
         }
     }
 }
