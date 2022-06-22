@@ -6,8 +6,8 @@ namespace Flink.Domain.Inferfaces
     {
         IEnumerable<LoginUsuario> GetUsuarios();
         LoginUsuario GetUsuariosById(int id);
-        void InsertUsuario(LoginUsuario usuario);
-        void UpdateUsuario(LoginUsuario usuario);
-        void DeleteUsuario(int idUsuario);
+        void InsertUsuario(LoginUsuario loginusuario);
+        void UpdateUsuario(LoginUsuario loginusuario);
+        void DeleteUsuario(int idAdmin);
     }
 }

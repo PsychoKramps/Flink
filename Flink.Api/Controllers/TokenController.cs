@@ -36,7 +36,7 @@ namespace Flink.Api.Controllers
         private string GenerateToken(string userName)
         {
             //header
-            var privatekey = "asdasdadasdasdasdgjdkwalsk";
+            var privatekey = "Autentication:SecretKey";
             var symetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(privatekey));
             var singingCredentials = new SigningCredentials(symetricSecurityKey, SecurityAlgorithms.HmacSha256);
             var header = new JwtHeader(singingCredentials);

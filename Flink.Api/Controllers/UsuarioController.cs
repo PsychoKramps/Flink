@@ -20,8 +20,6 @@ namespace Flink.Api.Controllers
             _Service = Service;
         }
 
-
-
         /// <summary>
         /// Retorna un listado con todas los usuarios registradoss
         /// </summary>
