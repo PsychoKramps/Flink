@@ -1,4 +1,4 @@
-﻿using Flink.Domain.Inferfaces;
+﻿using Flink.Domain.Interfaces;
 using Flink.Infraestructure.Persistance;
 
 namespace Flink.Infraestructure.Repositories

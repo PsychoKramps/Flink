@@ -1,6 +1,6 @@
 ﻿using Flink.Infraestructure.Persistance;
 
-namespace Flink.Domain.Inferfaces
+namespace Flink.Domain.Interfaces
 {
     public interface IUserLoginRepository
     {

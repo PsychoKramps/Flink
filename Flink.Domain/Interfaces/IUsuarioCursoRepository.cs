@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Flink.Domain.Inferfaces
+namespace Flink.Domain.Interfaces
 {
     public interface IUsuarioCursoRepository
     {
