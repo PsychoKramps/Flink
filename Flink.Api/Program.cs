@@ -16,7 +16,7 @@ using System.Reflection;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
-
+var cinemaUiPolicy = "UIPolicy";
 // Add services to the container.
 
 
@@ -27,6 +27,17 @@ builder.Services.AddControllers(
         options.Filters.Add<GlobalExceptionFilter>();
     })
 .AddFluentValidation();
+
+//Se habilitan los CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: "UIPolicy",
+                      policy =>
+                      {
+                          policy.WithOrigins("*");
+                     });
+});
+
 
 builder.Services.AddApplicationServices();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -117,6 +128,9 @@ builder.Services.AddAuthentication(options =>
 
 
 var app = builder.Build();
+
+
+app.UseCors("UIPolicy");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
