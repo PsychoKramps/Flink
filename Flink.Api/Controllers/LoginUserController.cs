@@ -10,6 +10,7 @@ namespace Flink.Api.Controllers
     {
         private readonly ILoginUsuarioService _Service;
 
+
         public LoginUserController(ILoginUsuarioService service)
         {
             _Service = service;
