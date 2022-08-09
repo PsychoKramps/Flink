@@ -12,7 +12,7 @@ namespace Flink.Application.Responses
         public string NombreCurso { get; set; } = null!;
         public string UrlCurso { get; set; } = null!;
         public DateTime Fecha { get; set; }
-        public TimeSpan Duracion { get; set; }
+        public string Duracion { get; set; }
         public string? Descripcion { get; set; }
         public string? TipoCurso { get; set; }
         public string? Categoria { get; set; }

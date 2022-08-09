@@ -59,6 +59,10 @@ namespace Flink.Infraestructure.Persistance
                     .HasColumnType("datetime")
                     .HasColumnName("fecha");
 
+                entity.Property(e => e.Duracion)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.NombreCurso)
                     .HasMaxLength(50)
                     .IsUnicode(false);
@@ -140,7 +144,7 @@ namespace Flink.Infraestructure.Persistance
                     Codigo = 1,
                     NombreCurso = "Curso de JavaScript",
                     UrlCurso = "https://www.youtube.com/watch?v=z95mZVUcJ-E",
-                    Fecha = DateTime.Now, Duracion = new TimeSpan(10, 00, 40),
+                    Fecha = DateTime.Now, Duracion = "10:45:78",
                     Descripcion = "Conoce los conceptos clave del lenguaje de programación que se está comiendo al mundo. Aprende qué es una variable, una función, un objeto y dónde se guardan esos valores. Descubre qué es Scope y cómo se utilizan los loops.",
                     TipoCurso = "Programacion",
                     Categoria = "Desarrollo de software",
@@ -151,7 +155,7 @@ namespace Flink.Infraestructure.Persistance
                     Codigo = 2,
                     NombreCurso = "Curso de Python",
                     UrlCurso = "https://www.youtube.com/watch?v=swdcD6OPMlk",
-                    Fecha = DateTime.Now, Duracion = new TimeSpan(9, 08, 40),
+                    Fecha = DateTime.Now, Duracion = "8:45:14",
                     Descripcion = "Aprende Python 3 como un profesional empezando por las bases hasta programar tus propios algoritmos o juegos completos",
                     TipoCurso = "Programacion",
                     Categoria = "Desarrollo de software",
@@ -162,7 +166,7 @@ namespace Flink.Infraestructure.Persistance
                     Codigo = 3,
                     NombreCurso = "Curso de PHP",
                     UrlCurso = "https://www.youtube.com/watch?v=nCB1gEkRZ1g",
-                    Fecha = DateTime.Now, Duracion = new TimeSpan(7, 29, 40),
+                    Fecha = DateTime.Now, Duracion = "09:12:83",
                     Descripcion = "¡Aprende PHP, el lenguaje de programación para backend presente en el 80% de sitios web! Inicia tu ruta de aprendizaje como PHP Developer y desarrolla tus primeros algoritmos con tu profesor Retax Master.",
                     TipoCurso = "Programacion",
                     Categoria = "Desarrollo de software",
@@ -173,7 +177,7 @@ namespace Flink.Infraestructure.Persistance
                     Codigo = 4,
                     NombreCurso = "Curso de C#",
                     UrlCurso = "https://www.youtube.com/watch?v=TqiysLEBZo4",
-                    Fecha = DateTime.Now, Duracion = new TimeSpan(6, 29, 40),
+                    Fecha = DateTime.Now, Duracion = "12:23:12",
                     Descripcion = "Avanza tu camino en el mundo de la programación con C#, uno de los lenguajes más utilizados en desarrollo web y videojuegos, con tu profesor Ricardo Celis.",
                     TipoCurso = "Programacion",
                     Categoria = "Desarrollo de software",
