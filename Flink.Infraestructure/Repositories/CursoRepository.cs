@@ -38,6 +38,7 @@ namespace Flink.Infraestructure.Repositories
             DataCursos.Descripcion = curso.Descripcion;
             DataCursos.TipoCurso = curso.TipoCurso;
             DataCursos.Categoria = curso.Categoria;
+            DataCursos.Portada = curso.Portada;
             _context.SaveChanges();
         }
         public void DeleteCursos(int id)

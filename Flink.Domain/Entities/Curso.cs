@@ -18,7 +18,7 @@ namespace Flink.Infraestructure.Persistance
         public string? Descripcion { get; set; }
         public string? TipoCurso { get; set; }
         public string? Categoria { get; set; }
-
+        public string Portada { get; set; } = null!;
         public virtual ICollection<UsuarioCurso> UsuarioCursos { get; set; }
     }
 }
