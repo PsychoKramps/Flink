@@ -9,7 +9,7 @@ namespace Flink.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     [Produces("application/json")]
     public class UsuarioController : ControllerBase
     {

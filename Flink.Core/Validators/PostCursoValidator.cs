@@ -29,6 +29,10 @@ namespace Flink.Application.Validators
                     .NotEmpty()
                     .WithMessage("Categoría del curso requerido");
 
+            RuleFor(x => x.Portada)
+                    .NotEmpty()
+                    .WithMessage("Portada del curso requerido");
+
         }
     }
 }

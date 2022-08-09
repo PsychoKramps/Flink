@@ -68,6 +68,9 @@ namespace Flink.Infraestructure.Persistance
                     .IsUnicode(false);
 
                 entity.Property(e => e.UrlCurso).IsUnicode(false);
+
+                entity.Property(e => e.Portada).IsUnicode(false);
+
             });
 
 
@@ -132,10 +135,50 @@ namespace Flink.Infraestructure.Persistance
                 );
 
             modelBuilder.Entity<Curso>().HasData(
-                new Curso { Codigo = 1, NombreCurso = "Curso de JavaScript", UrlCurso = "https://www.youtube.com/watch?v=z95mZVUcJ-E", Fecha = DateTime.Now, Duracion = new TimeSpan(10, 00, 40), Descripcion = "Conoce los conceptos clave del lenguaje de programación que se está comiendo al mundo. Aprende qué es una variable, una función, un objeto y dónde se guardan esos valores. Descubre qué es Scope y cómo se utilizan los loops.", TipoCurso = "Programacion", Categoria = "Desarrollo de software" },
-                new Curso { Codigo = 2, NombreCurso = "Curso de Python", UrlCurso = "https://www.youtube.com/watch?v=swdcD6OPMlk", Fecha = DateTime.Now, Duracion = new TimeSpan(9, 08, 40), Descripcion = "Aprende Python 3 como un profesional empezando por las bases hasta programar tus propios algoritmos o juegos completos", TipoCurso = "Programacion", Categoria = "Desarrollo de software" },
-                new Curso { Codigo = 3, NombreCurso = "Curso de PHP", UrlCurso = "https://www.youtube.com/watch?v=nCB1gEkRZ1g", Fecha = DateTime.Now, Duracion = new TimeSpan(7, 29, 40), Descripcion = "¡Aprende PHP, el lenguaje de programación para backend presente en el 80% de sitios web! Inicia tu ruta de aprendizaje como PHP Developer y desarrolla tus primeros algoritmos con tu profesor Retax Master.", TipoCurso = "Programacion", Categoria = "Desarrollo de software" },
-                new Curso { Codigo = 4, NombreCurso = "Curso de C#", UrlCurso = "https://www.youtube.com/watch?v=TqiysLEBZo4", Fecha = DateTime.Now, Duracion = new TimeSpan(6, 29, 40), Descripcion = "Avanza tu camino en el mundo de la programación con C#, uno de los lenguajes más utilizados en desarrollo web y videojuegos, con tu profesor Ricardo Celis.", TipoCurso = "Programacion", Categoria = "Desarrollo de software" }
+                new Curso
+                { 
+                    Codigo = 1,
+                    NombreCurso = "Curso de JavaScript",
+                    UrlCurso = "https://www.youtube.com/watch?v=z95mZVUcJ-E",
+                    Fecha = DateTime.Now, Duracion = new TimeSpan(10, 00, 40),
+                    Descripcion = "Conoce los conceptos clave del lenguaje de programación que se está comiendo al mundo. Aprende qué es una variable, una función, un objeto y dónde se guardan esos valores. Descubre qué es Scope y cómo se utilizan los loops.",
+                    TipoCurso = "Programacion",
+                    Categoria = "Desarrollo de software",
+                    Portada = "https://i.ytimg.com/vi/RqQ1d1qEWlE/maxresdefault.jpg"
+                },
+                new Curso
+                {
+                    Codigo = 2,
+                    NombreCurso = "Curso de Python",
+                    UrlCurso = "https://www.youtube.com/watch?v=swdcD6OPMlk",
+                    Fecha = DateTime.Now, Duracion = new TimeSpan(9, 08, 40),
+                    Descripcion = "Aprende Python 3 como un profesional empezando por las bases hasta programar tus propios algoritmos o juegos completos",
+                    TipoCurso = "Programacion",
+                    Categoria = "Desarrollo de software",
+                    Portada = "https://assets2-programarya-com.juandmegon.com/img/Cursos/Python/Python-header.png"
+                },
+                new Curso
+                {
+                    Codigo = 3,
+                    NombreCurso = "Curso de PHP",
+                    UrlCurso = "https://www.youtube.com/watch?v=nCB1gEkRZ1g",
+                    Fecha = DateTime.Now, Duracion = new TimeSpan(7, 29, 40),
+                    Descripcion = "¡Aprende PHP, el lenguaje de programación para backend presente en el 80% de sitios web! Inicia tu ruta de aprendizaje como PHP Developer y desarrolla tus primeros algoritmos con tu profesor Retax Master.",
+                    TipoCurso = "Programacion",
+                    Categoria = "Desarrollo de software",
+                    Portada = "https://i0.wp.com/unaaldia.hispasec.com/wp-content/uploads/2019/09/Captura-de-pantalla-de-2019-09-07-04-06-35.png?fit=983%2C633&ssl=1"
+                },
+                new Curso
+                {
+                    Codigo = 4,
+                    NombreCurso = "Curso de C#",
+                    UrlCurso = "https://www.youtube.com/watch?v=TqiysLEBZo4",
+                    Fecha = DateTime.Now, Duracion = new TimeSpan(6, 29, 40),
+                    Descripcion = "Avanza tu camino en el mundo de la programación con C#, uno de los lenguajes más utilizados en desarrollo web y videojuegos, con tu profesor Ricardo Celis.",
+                    TipoCurso = "Programacion",
+                    Categoria = "Desarrollo de software",
+                    Portada = "https://cdn.fs.teachablecdn.com/f0o2YGKTFONup7nJc8aQ"
+                }
                 );
 
 
