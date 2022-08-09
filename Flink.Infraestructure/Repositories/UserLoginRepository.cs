@@ -21,6 +21,12 @@ namespace Flink.Infraestructure.Repositories
         {
             return _context.LoginUsuario.FirstOrDefault(x => x.IdAdmin == id);
         }
+
+        public LoginUsuario GetLoginUsuarioByName(string name)
+        {
+            return _context.LoginUsuario.FirstOrDefault(x => x.User == name);
+        }
+
         public void InsertLoginUsuario(LoginUsuario loginusuario)
         {
             _context.LoginUsuario.Add(loginusuario);

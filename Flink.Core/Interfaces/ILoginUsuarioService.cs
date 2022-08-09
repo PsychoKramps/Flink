@@ -6,6 +6,9 @@ namespace Flink.Application.Interfaces
     public interface ILoginUsuarioService
     {
         IEnumerable<LoginUsuarioResponse> GetLoginUsuario();
+
+        LoginUsuarioResponse GetLoginUsuariobyName(string name);
+
         LoginUsuarioResponse GetLoginUsuarioById(int id);
         void InsertLoginUsuario(PostUserLoginRequest loginUsuariopost);
         // void UpdateUsuario(UpdateLoginUserRequest loginusuario);

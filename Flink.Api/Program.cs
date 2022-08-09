@@ -31,11 +31,11 @@ builder.Services.AddControllers(
 //Se habilitan los CORS
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy(name: "UIPolicy",
-                      policy =>
-                      {
-                          policy.WithOrigins("*");
-                     });
+    options.AddPolicy("UIPolicy",
+        policy => policy.AllowAnyHeader()
+        .AllowAnyMethod()
+        .AllowAnyOrigin());
+
 });
 
 

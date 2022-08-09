@@ -1,4 +1,6 @@
 ﻿using Flink.Appication.Request;
+using Flink.Application.Interfaces;
+using Flink.Application.Responses;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -13,7 +15,13 @@ namespace Flink.Api.Controllers
 
     public class TokenController : ControllerBase
     {
+        private readonly ILoginUsuarioService _service;
+        
 
+        public TokenController(ILoginUsuarioService service)
+        {
+            _service = service;
+        }
         [HttpPost]
         public IActionResult GetToken(UserLoginRequest loginRequest)
         {
@@ -26,9 +34,10 @@ namespace Flink.Api.Controllers
         }
 
 
-        private bool ValidateUser(UserLoginRequest LoginRequest)
+        private bool ValidateUser(UserLoginRequest loginRequest)
         {
-            if (LoginRequest.UserName == "admin" && LoginRequest.Password == "abc123")
+            LoginUsuarioResponse loginUsuarioResponse = _service.GetLoginUsuariobyName(loginRequest.UserName);
+            if (loginUsuarioResponse.User == loginRequest.UserName && loginUsuarioResponse.Password == loginRequest.Password)
                 return true;
             return false;
         }

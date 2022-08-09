@@ -32,6 +32,13 @@ namespace Flink.Application.Services
             return loginUserResponse;
         }
 
+        public LoginUsuarioResponse GetLoginUsuariobyName(string name)
+        {
+            var loginUser = _repository.GetLoginUsuarioByName(name);
+            var loginUserResponse = _mapper.Map<LoginUsuarioResponse>(loginUser);
+            return loginUserResponse;
+        }
+
         public void InsertLoginUsuario(PostUserLoginRequest loginUsuariopost)
         {
             var loginUsuario = _mapper.Map<LoginUsuario>(loginUsuariopost);
